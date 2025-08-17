@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hrrr-ingest"
+version = "0.1.0"
+description = "CLI to ingest NOAA HRRR forecast data into DuckDB"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "pygrib",
+    "s3fs",
+    "duckdb",
+    "typer",
+    "pandas",
+    "numpy",
+    "python-dateutil",
+    "rich",
+]
+
+[project.scripts]
+hrrr-ingest = "hrrr_ingest.cli:cli_main"
+hrrr-debug-vars = "hrrr_ingest.cli:cli_debug_vars"
+
+
+
+
+
