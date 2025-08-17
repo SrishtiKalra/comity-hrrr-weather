@@ -44,24 +44,24 @@ The following variables are supported and mapped from HRRR GRIB2 records:
 
 ## Example runs
 
-# 2-hour smoke test (explicit date & vars):
+### 2-hour smoke test (explicit date & vars):
 
 ```bash
 hrrr-ingest points.txt --num-hours 2 --variables u_component_wind_80m,v_component_wind_80m
 ```
 
-# 6-hour ingest (subset of vars):
+### 6-hour ingest (subset of vars):
 ```bash
 hrrr-ingest points.txt --num-hours 6 --variables u_component_wind_80m,v_component_wind_80m,temperature_2m,surface_pressure
 ```
 
-# Full 48-hour ingest (all variables by default):
+### Full 48-hour ingest (all variables by default):
 ```bash
 hrrr-ingest points.txt
 ```
 
 
-# Verifying the Data in DuckDB:
+## Verifying the Data in DuckDB:
 ```bash
 python - <<'PY'
 import duckdb
@@ -95,10 +95,10 @@ PY
 ```
 
 
-# Notes
-# Ingestion is idempotent (safe to re-run).
-# surface_pressure may map to MSLP if surface PRES@surface isn’t present.
-# The CLI can also be run with python -m hrrr_ingest.cli main ... for debugging, but the intended entrypoint is the installed script: 
+## Notes
+- Ingestion is idempotent (safe to re-run).
+- surface_pressure may map to MSLP if surface PRES@surface isn’t present.
+- The CLI can also be run with python -m hrrr_ingest.cli main ... for debugging, but the intended entrypoint is the installed script: 
 ```bash
 hrrr-ingest points.txt
 ```
